@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SocioTurtle | 3D Capability-Based Learning & Verification Platform</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
   
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
@@ -1022,6 +1024,27 @@
 
     <!-- ================= JAVASCRIPT LOGIC ================= -->
     <script>
+
+        // Replace with your actual Supabase project URL and anon key
+  const SUPABASE_URL = "https://deppbixkgthmfdqnmvxr.supabase.co";
+  const SUPABASE_ANON_KEY = "sb_publishable_VCVHARdbkpeX1ICqQLO5yg_qaNTkoXZ";
+
+  const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  // Example: fetch data from a table
+  async function loadData() {
+    let { data, error } = await supabase
+      .from("your_table_name")
+      .select("*");
+
+    if (error) {
+      console.error("Error:", error);
+    } else {
+      console.log("Data:", data);
+    }
+  }
+
+  loadData();
         
         // Default Mock Data in Store
         const INITIAL_PROJECTS = [
