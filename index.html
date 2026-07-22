@@ -1031,21 +1031,7 @@
 
   const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-  // Example: fetch data from a table
-  async function loadData() {
-    let { data, error } = await supabase
-      .from("your_table_name")
-      .select("*");
-
-    if (error) {
-      console.error("Error:", error);
-    } else {
-      console.log("Data:", data);
-    }
-  }
-
-  loadData();
-        
+          
         // Default Mock Data in Store
         const INITIAL_PROJECTS = [
             {
