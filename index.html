@@ -1596,30 +1596,6 @@
             renderEmployerCandidatePool();
         };
     
-  const SUPABASE_URL = "https://deppbixkgthmfdqnmvxr.supabase.co";
-    const SUPABASE_KEY = "sb_publishable_VCVHARdbkpeX1ICqQLO5yg_qaNTkoXZ";
-    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-
-    document.getElementById("userForm").addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const name = document.getElementById("name").value;
-      await supabase.from("users").insert([{ name }]);
-      loadUsers();
-    });
-
-    async function loadUsers() {
-      const { data } = await supabase.from("users").select("*");
-      const list = document.getElementById("userList");
-      list.innerHTML = "";
-      data.forEach(user => {
-        const li = document.createElement("li");
-        li.textContent = user.name;
-        list.appendChild(li);
-      });
-    }
-
-    loadUsers();
-
-    </script>
+      </script>
 </body>
 </html>
