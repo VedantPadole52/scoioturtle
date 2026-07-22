@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SocioTurtle | 3D Capability-Based Learning & Verification Platform</title>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-  
+    <title>Supabase Example</title>
+  <!-- Load Supabase client -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-</head>
-
+    
+    <title>SocioTurtle | 3D Capability-Based Learning & Verification Platform</title>
+    
+    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -1007,7 +1007,7 @@
             </button>
         </div>
     </div>
-             
+
 
     <!-- Footer -->
     <footer class="border-t border-teal-500/20 bg-darkbg/90 py-10 text-xs font-mono text-gray-400">
@@ -1024,14 +1024,22 @@
 
     <!-- ================= JAVASCRIPT LOGIC ================= -->
     <script>
+        const SUPABASE_URL = "https://deppbixkgthmfdqnmvxr.supabase.co";
+  const SUPABASE_KEY = "sb_publishable_VCVHARdbkpeX1ICqQLO5yg_qaNTkoXZ";
 
-        // Replace with your actual Supabase project URL and anon key
-  const SUPABASE_URL = "https://deppbixkgthmfdqnmvxr.supabase.co";
-  const SUPABASE_ANON_KEY = "sb_publishable_VCVHARdbkpeX1ICqQLO5yg_qaNTkoXZ";
+  const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-  const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  // Example: fetch data from a table called "users"
+  async function loadUsers() {
+    const { data, error } = await supabase.from("users").select("*");
+    if (error) {
+      console.error(error);
+    } else {
+      console.log(data);
+    }
+  }
 
-          
+  loadUsers();
         // Default Mock Data in Store
         const INITIAL_PROJECTS = [
             {
@@ -1604,7 +1612,6 @@
             renderEducatorQueue();
             renderEmployerCandidatePool();
         };
-    
-      </script>
+    </script>
 </body>
 </html>
